@@ -13,6 +13,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,6 +23,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
@@ -74,11 +78,13 @@ public class Pesquisar extends AppCompatActivity {
         recyclemovimento.invalidate();
 
         list = new ArrayList<>();
-        myAdapter = new Adapter(Pesquisar.this, list);
-        recyclemovimento.setAdapter(myAdapter);
+
+        swipe();
 
 
-        //evento click ->
+
+
+        //evento click  em cima de algum objeto da lista->
         recyclemovimento.addOnItemTouchListener(new RecyclerItemClickListener(
                 getApplicationContext(), recyclemovimento, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
@@ -142,9 +148,13 @@ public class Pesquisar extends AppCompatActivity {
                         database.child(exclui.getKey()).child("complemento").setValue(editinformacoesDialog.getText().toString());
 
 
-                        dialogMod.dismiss();
+
+
 
                         myAdapter.notifyDataSetChanged();
+                        list.clear();
+
+                        dialogMod.dismiss();
 
 
                     }
@@ -173,30 +183,7 @@ public class Pesquisar extends AppCompatActivity {
         }
         ));
 
-        database.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                list.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    AdicionarAgenda adicionarAgenda = dataSnapshot.getValue(AdicionarAgenda.class);
-                    adicionarAgenda.setKey(dataSnapshot.getKey());
 
-                    list.add(adicionarAgenda);
-
-                }
-
-                myAdapter.notifyDataSetChanged();
-
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull @NotNull DatabaseError error) {
-
-            }
-        });
-
-        swipe();
 
     }
 
@@ -273,6 +260,82 @@ public class Pesquisar extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_principal,menu);
 
+        MenuItem busca = menu.findItem(R.id.busca);
+
+        SearchView editDebusca = (SearchView)busca.getActionView();
+
+
+
+
+        editDebusca.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+
+
+
+                if( newText != null && !newText.isEmpty()){
+                    pesquisarConversa(newText);
+                }
+
+                return true;
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    public void pesquisarConversa(String texto){
+
+
+
+        Query query;
+        if(texto.equals("")){
+            query = database.orderByChild("nome");
+
+        }else{
+            query = database.orderByChild("nome").startAt(texto).endAt(texto+"\uf8ff");
+        }
+
+        list.clear();
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                list.clear();
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    AdicionarAgenda adicionarAgenda = dataSnapshot.getValue(AdicionarAgenda.class);
+                    adicionarAgenda.setKey(dataSnapshot.getKey());
+
+                    list.add(adicionarAgenda);
+
+                }
+
+                myAdapter = new Adapter(Pesquisar.this, list);
+                recyclemovimento.setAdapter(myAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        pesquisarConversa("");
+    }
 }
 
