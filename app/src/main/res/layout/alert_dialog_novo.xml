@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+
+
+        <EditText android:id="@+id/editNomeDiolog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:inputType="textPersonName"
+            />
+
+        <EditText android:id="@+id/editTelefoneDialog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:inputType="number"
+            />
+
+        <EditText android:id="@+id/editCepDialog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:inputType="number"
+            />
+
+        <EditText android:id="@+id/editLogradouroDialog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:inputType="number"
+            />
+
+        <EditText android:id="@+id/editEstadoDialog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:inputType="number"
+            />
+        <EditText android:id="@+id/editCidadeDialog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:inputType="number"
+            />
+        <EditText android:id="@+id/editComplementoDialog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:inputType="number"
+            />
+        <EditText android:id="@+id/editinformacoesDialog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:inputType="number"
+            />
+
+
+
+
+
+
+        <Button
+            android:id="@+id/btnEnviarDialog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Enviar"
+            />
+        <Button
+            android:id="@+id/btnCancelarDialog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Cancelar"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>
