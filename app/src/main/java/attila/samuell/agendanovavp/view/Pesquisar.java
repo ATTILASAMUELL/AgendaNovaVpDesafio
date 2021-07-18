@@ -144,6 +144,8 @@ public class Pesquisar extends AppCompatActivity {
 
                         dialogMod.dismiss();
 
+                        myAdapter.notifyDataSetChanged();
+
 
                     }
                 });
@@ -174,9 +176,11 @@ public class Pesquisar extends AppCompatActivity {
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                list.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     AdicionarAgenda adicionarAgenda = dataSnapshot.getValue(AdicionarAgenda.class);
                     adicionarAgenda.setKey(dataSnapshot.getKey());
+
                     list.add(adicionarAgenda);
 
                 }
@@ -245,7 +249,10 @@ public class Pesquisar extends AppCompatActivity {
 
                 Toast.makeText(Pesquisar.this, "Excluido com sucesso!!!", Toast.LENGTH_LONG).show();
 
-                myAdapter.notifyItemRemoved(position);
+
+                list.remove(position);
+                myAdapter.notifyDataSetChanged();
+
 
 
             }
