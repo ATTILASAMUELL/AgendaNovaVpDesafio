@@ -18,6 +18,9 @@ public class TelaSplash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_splash);
 
+        //Esconder Action bar
+        getSupportActionBar().hide();
+
 
         //chama o metodo para trocar de tela.
         trocarDeTela();

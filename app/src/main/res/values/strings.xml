@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Agenda Desafio VP</string>
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="entrar">Entrar</string>
+    <string name="cadastrar">Clique aqui para se cadastrar...</string>
+    <string name="cadastrese">Cadastre-se</string>
+    <string name="cadastra">Cadastrar</string>
+    <string name="voltar">Voltar</string>
+    <string name="adicionarAgenda">Adcionar na Agenda</string>
 </resources>

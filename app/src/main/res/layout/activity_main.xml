@@ -1,159 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.MainActivity"
+        android:background="@color/roxo_bem_claro">
 
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="284dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="16dp"
-        android:text="Adicionar na agenda"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <!-- AdicionarAgenda_Cadastro , editNomeAdicionar , editTelefoneAdicionar , editCepAdicionar , btnBuscarCepAdicionar,
+         editLogradouroAdicionar ,  editComplementoAdicionar  , editEstadoAdicionar , editCidadeAdicionar,
+          editInformacoesAdicionar , btnVerlista , btnAdd (botao cadastrar)-->
+
+        <TextView
+            android:id="@+id/AdicionarAgenda_Cadastro"
+            android:layout_width="282dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/adicionarAgenda"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/containerComponents"
+            android:layout_width="387dp"
+            android:layout_height="519dp"
+            android:layout_margin="10dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/container_components"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/AdicionarAgenda_Cadastro"
+
+            />
+
+        <EditText android:id="@+id/editNomeAdicionar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="   Nome Completo"
+            android:maxLength="27"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/edit_text"
+            app:layout_constraintTop_toTopOf="@+id/containerComponents"
+            app:layout_constraintStart_toStartOf="@+id/containerComponents"
+            app:layout_constraintEnd_toEndOf="@+id/containerComponents"
+            />
+
+        <EditText android:id="@+id/editTelefoneAdicionar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="   Telefone"
+            android:maxLength="27"
+            android:layout_marginLeft="30dp"
+            android:inputType="number"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/edit_text"
+            app:layout_constraintTop_toBottomOf="@+id/editNomeAdicionar"
+            app:layout_constraintStart_toStartOf="@+id/containerComponents"
+            app:layout_constraintEnd_toEndOf="@+id/containerComponents"
+            />
+
+        <EditText
+            android:id="@+id/editCepAdicionar"
+            android:layout_width="181dp"
+            android:layout_height="57dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/edit_text"
+            android:hint="   Cep"
+            android:inputType="number"
+            android:maxLength="27"
+            app:layout_constraintEnd_toEndOf="@+id/btnBuscarCepAdicionar"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/containerComponents"
+            app:layout_constraintTop_toBottomOf="@+id/editTelefoneAdicionar" />
+
+        <Button
+            android:id="@+id/btnBuscarCepAdicionar"
+            android:layout_width="134dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/button"
+            android:text="Buscar"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/containerComponents"
+            app:layout_constraintHorizontal_bias="0.883"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTelefoneAdicionar" />
+
+        <EditText
+            android:id="@+id/editLogradouroAdicionar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/edit_text"
+            android:hint="   Endereço"
+            android:inputType="text"
+            android:maxLength="27"
+            app:layout_constraintEnd_toEndOf="@+id/containerComponents"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/containerComponents"
+            app:layout_constraintTop_toBottomOf="@+id/editCepAdicionar" />
+
+        <EditText android:id="@+id/editComplementoAdicionar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="   Complemento(Bairro)"
+            android:maxLength="27"
+            android:layout_marginLeft="30dp"
+            android:inputType="text"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/edit_text"
+            app:layout_constraintTop_toBottomOf="@+id/editLogradouroAdicionar"
+            app:layout_constraintStart_toStartOf="@+id/containerComponents"
+            app:layout_constraintEnd_toEndOf="@+id/containerComponents"
+            />
+
+        <EditText android:id="@+id/editEstadoAdicionar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="   Estado"
+            android:maxLength="27"
+            android:layout_marginLeft="30dp"
+            android:inputType="text"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/edit_text"
+            app:layout_constraintTop_toBottomOf="@+id/editComplementoAdicionar"
+            app:layout_constraintStart_toStartOf="@+id/containerComponents"
+            app:layout_constraintEnd_toEndOf="@+id/containerComponents"
+            />
+
+        <EditText android:id="@+id/editCidadeAdicionar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="   Cidade"
+            android:maxLength="27"
+            android:layout_marginLeft="30dp"
+            android:inputType="text"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/edit_text"
+            app:layout_constraintTop_toBottomOf="@+id/editEstadoAdicionar"
+            app:layout_constraintStart_toStartOf="@+id/containerComponents"
+            app:layout_constraintEnd_toEndOf="@+id/containerComponents"
+            />
+
+        <EditText
+            android:id="@+id/editInformacoesAdicionar"
+            android:layout_width="336dp"
+            android:layout_height="76dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/edit_text"
+            android:hint="  Informações adicionais(mais Telefone)"
+            android:inputType="text"
+            android:maxLength="40"
+            app:layout_constraintEnd_toEndOf="@+id/containerComponents"
+            app:layout_constraintHorizontal_bias="0.487"
+            app:layout_constraintStart_toStartOf="@+id/containerComponents"
+            app:layout_constraintTop_toBottomOf="@+id/editCidadeAdicionar" />
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="276dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/button"
+            android:text="@string/cadastra"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/containerComponents" />
+
+        <Button
+            android:id="@+id/btnVerlista"
+            android:layout_width="227dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button"
+            android:text="Ver lista da agenda"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnAdd" />
 
 
-    <EditText
-        android:id="@+id/editNomeAdicionar"
-        android:layout_width="344dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Digite nome..."
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.326"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
 
-    <EditText
-        android:id="@+id/editTelefoneAdicionar"
-        android:layout_width="339dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="Digite o telefone:"
-        android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.305"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNomeAdicionar" />
-
-    <EditText
-        android:id="@+id/editCepAdicionar"
-        android:layout_width="169dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Digite o cep..."
-        android:inputType="phone"
-        app:layout_constraintEnd_toStartOf="@+id/btnBuscarCepAdicionar"
-        app:layout_constraintHorizontal_bias="0.527"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTelefoneAdicionar" />
-
-    <Button
-        android:id="@+id/btnBuscarCepAdicionar"
-        android:layout_width="153dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginRight="44dp"
-        android:text="Buscar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTelefoneAdicionar" />
-
-    <EditText
-        android:id="@+id/editLogradouroAdicionar"
-        android:layout_width="183dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Digite o logradouro..."
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editCepAdicionar" />
-
-    <EditText
-        android:id="@+id/editComplementoAdicionar"
-        android:layout_width="145dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="Digite um complemento..."
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.295"
-        app:layout_constraintStart_toEndOf="@+id/editLogradouroAdicionar"
-        app:layout_constraintTop_toBottomOf="@+id/btnBuscarCepAdicionar" />
-
-    <EditText
-        android:id="@+id/editEstadoAdicionar"
-        android:layout_width="181dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="Digite o estado..."
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/editCidadeAdicionar"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editLogradouroAdicionar" />
-
-    <EditText
-        android:id="@+id/editCidadeAdicionar"
-        android:layout_width="141dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginRight="44dp"
-        android:ems="10"
-        android:hint="Digite a cidade..."
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editComplementoAdicionar" />
-
-    <EditText
-        android:id="@+id/editInformacoesAdicionar"
-        android:layout_width="324dp"
-        android:layout_height="78dp"
-        android:ems="10"
-        android:hint="Digite mais alguma informação..."
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/btnAdd"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editEstadoAdicionar" />
-
-    <Button
-        android:id="@+id/btnVerlista"
-        android:layout_width="177dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="16dp"
-        android:text="Pesquisar Lista de Pessoas"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAdd" />
-
-    <Button
-        android:id="@+id/btnAdd"
-        android:layout_width="386dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="300dp"
-        android:text="Cadastrar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTelefoneAdicionar" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>

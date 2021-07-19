@@ -3,9 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <item android:title="meu perfil"
+    <item
+        android:id="@+id/item_ir_da_lista_para_perdil"
+        android:title="Meu perfil"
         app:showAsAction=""/>
 
+    <item
+        android:id="@+id/item_add_agendai"
+        android:title="Adicionar na Agenda" />
     <item android:title="sair"
         app:showAsAction=""/>
 

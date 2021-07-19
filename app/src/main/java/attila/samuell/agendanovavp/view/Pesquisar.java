@@ -310,7 +310,7 @@ public class Pesquisar extends AppCompatActivity {
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                list.clear();
+                //list.clear();
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     AdicionarAgenda adicionarAgenda = dataSnapshot.getValue(AdicionarAgenda.class);
                     adicionarAgenda.setKey(dataSnapshot.getKey());
@@ -336,6 +336,68 @@ public class Pesquisar extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         pesquisarConversa("");
+
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.item_ir_da_lista_para_perdil:
+                Intent irTelaPesquisarDoperfil = new Intent(Pesquisar.this, Tela_Perfil.class);
+                startActivity(irTelaPesquisarDoperfil);
+                finish();
+
+
+                break;
+            case R.id.item_add_agendai:
+                Intent irTelaVerlista = new Intent(Pesquisar.this, MainActivity.class);
+                startActivity(irTelaVerlista);
+                finish();
+                break;
+
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
