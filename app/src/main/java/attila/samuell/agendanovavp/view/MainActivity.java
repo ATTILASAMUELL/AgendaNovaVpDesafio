@@ -2,17 +2,9 @@ package attila.samuell.agendanovavp.view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 
 import android.app.Activity;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.app.TaskStackBuilder;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -23,21 +15,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
 import attila.samuell.agendanovavp.R;
-import attila.samuell.agendanovavp.config.ConfiguracaoFirebase;
 import attila.samuell.agendanovavp.modelo.AdicionarAgenda;
 import attila.samuell.agendanovavp.modelo.CEP;
-import attila.samuell.agendanovavp.modelo.Usuario;
 import attila.samuell.agendanovavp.service.HttpService;
 
 public class MainActivity extends AppCompatActivity {
@@ -204,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
             case R.id.item_perfil_mainact:
-                Intent irTelaVerlista = new Intent(MainActivity.this, Tela_Perfil.class);
+                Intent irTelaVerlista = new Intent(MainActivity.this, TelaPerfil.class);
                 startActivity(irTelaVerlista);
                 finish();
                 break;

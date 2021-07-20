@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AgendaNovaVp">
-        <activity android:name=".view.Tela_Perfil"></activity>
+        <activity android:name=".view.TelaPerfil"></activity>
         <activity android:name=".view.Login" />
         <activity android:name=".view.Pesquisar" />
         <activity android:name=".view.Cadastro" />
