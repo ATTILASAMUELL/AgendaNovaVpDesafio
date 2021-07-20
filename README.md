@@ -13,12 +13,17 @@ Parte Tela Splash, Tela Login, Tela Cadastre-se:
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Pagina para usuario adicionar na agenda, dados de sua vontade, contendo telefone, cep(Interligado com api cep correios), basta inserir cep valido:
+Página para usuario adicionar na agenda, dados de sua vontade, contendo telefone, cep(Interligado com api cep correios), basta inserir cep valido:
 ![dadosss](https://user-images.githubusercontent.com/76443540/126244816-ffac362d-6118-4c33-b985-2e8be50614af.png)
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Páginas de excluir, alterar dados da agenda, tudo interligado ao firebase:
+
+![img final](https://user-images.githubusercontent.com/76443540/126245670-76389dca-776d-4012-80de-34960b6ff546.png)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 Implementação da notificação simples interligada com Firebase(Cloud Messaging):
